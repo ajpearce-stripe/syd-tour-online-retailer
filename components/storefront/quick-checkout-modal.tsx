@@ -61,7 +61,7 @@ export function QuickCheckoutModal({
   // Checkout; these hold the IDs returned so we can confirm the join afterwards.
   const [joinSessionId, setJoinSessionId] = useState<string | null>(null)
   const [joinCustomerId, setJoinCustomerId] = useState<string | null>(null)
-  // A redeemed Aster & Hem gift card (validated server-side and turned into a Stripe
+  // A redeemed Tour Sydney gift card (validated server-side and turned into a Stripe
   // coupon). It discounts the order; the remaining balance is charged via the
   // selected payment API.
   const [giftCard, setGiftCard] = useState<AppliedGiftCard | null>(null)

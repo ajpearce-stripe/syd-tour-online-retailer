@@ -1,12 +1,12 @@
 // =============================================================================
 // Catalog search — powers the Stylist chat agent's `searchCatalog` tool.
 // =============================================================================
-// Self-contained, deterministic, server-safe search over the Aster & Hem catalogue.
+// Self-contained, deterministic, server-safe search over the Tour Sydney catalogue.
 // It maps a free-text shopping query (e.g. "boho cushion for a friend") plus
 // optional filters (category, price range) to a small set of genuinely relevant
 // products the agent can recommend and the buyer can purchase in-chat.
 
-import { PRODUCTS, type AsterHemProduct } from "@/lib/products"
+import { PRODUCTS, type Product } from "@/lib/products"
 
 // The canonical categories in the catalogue (kept in sync via fuzzy matching).
 const CATEGORIES = Array.from(new Set(PRODUCTS.map((p) => p.category)))
@@ -56,7 +56,7 @@ export interface CatalogSearchParams {
 }
 
 export interface CatalogSearchResult {
-  products: AsterHemProduct[]
+  products: Product[]
   count: number
   matchedCategory: string | null
 }
@@ -144,7 +144,7 @@ function hasWord(haystack: string, word: string): boolean {
 }
 
 /**
- * Search the Aster & Hem catalogue for products matching a free-text query and
+ * Search the Tour Sydney catalogue for products matching a free-text query and
  * optional filters. Deterministic and dependency-free so it can run inside an
  * AI tool call on the server.
  */

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import { PRODUCTS, type AsterHemProduct } from "@/lib/products"
+import { PRODUCTS, type Product } from "@/lib/products"
 import { externalImageUrl } from "@/lib/image-url"
 
 // =============================================================================
@@ -43,9 +43,9 @@ export function formatUsd(cents: number): string {
 
 // The catalogue has no description field, so synthesise a useful one-liner from
 // the structured attributes we do have. Keeps the agent's responses readable.
-export function productDescription(p: AsterHemProduct): string {
+export function productDescription(p: Product): string {
   const variant = p.variant && p.variant.trim() ? `${p.variant} · ` : ""
-  return `${p.name} — ${variant}${p.category} from Aster & Hem, a premium Australian home and linen brand.`
+  return `${p.name} — ${variant}${p.category} from Tour Sydney, a premium Australian home and linen brand.`
 }
 
 // Public, ACP-shaped view of a catalogue product.
@@ -66,7 +66,7 @@ export interface AcpProduct {
   image_proxy_url: string | null
 }
 
-export function toAcpProduct(p: AsterHemProduct): AcpProduct {
+export function toAcpProduct(p: Product): AcpProduct {
   const cents = toCents(p.price)
   const img = externalImageUrl(p.image)
   return {

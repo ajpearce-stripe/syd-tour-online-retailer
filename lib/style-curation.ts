@@ -1,4 +1,4 @@
-// Deterministic, style-aware outfit curation for Aster & Hem.
+// Deterministic, style-aware outfit curation for Tour Sydney.
 //
 // The AI stylist (app/api/analyse-room) is the primary path, but it can fail or
 // return nothing. This module maps a free-text style brief (e.g. "minimal",
@@ -12,7 +12,7 @@
 //     shared more freely across styles.
 // It is fully deterministic so the same brief always yields a coherent edit.
 
-import { PRODUCTS, type AsterHemProduct } from "@/lib/products"
+import { PRODUCTS, type Product } from "@/lib/products"
 import type { RoomAnalysis } from "@/lib/types"
 
 export type StyleKey =
@@ -240,7 +240,7 @@ function hasWord(text: string, word: string): boolean {
 
 // All the searchable text for a product — name, colour, subcategory and the
 // editorial description carry the strongest style signal.
-function productText(product: AsterHemProduct): string {
+function productText(product: Product): string {
   return `${product.name} ${product.colour ?? product.variant ?? ""} ${product.subcategory ?? ""} ${
     product.description ?? ""
   }`.toLowerCase()
@@ -248,7 +248,7 @@ function productText(product: AsterHemProduct): string {
 
 // Score a product's fit for a style. Positive = on-brief; negative = it reads as
 // a different (conflicting) style and should be kept out of this edit.
-function scoreProduct(product: AsterHemProduct, profile: StyleProfile, antiSignals: string[]): number {
+function scoreProduct(product: Product, profile: StyleProfile, antiSignals: string[]): number {
   const text = productText(product)
   let score = 0
   for (const sig of profile.signature) {
@@ -302,7 +302,7 @@ const DRESS_SLOTS: CurationSlot[] = [
 const CURATED_COUNT = 6
 
 interface ScoredPick {
-  product: AsterHemProduct
+  product: Product
   score: number
 }
 

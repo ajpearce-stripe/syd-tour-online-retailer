@@ -188,7 +188,7 @@ export function RoomVisualiser({
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={styledImage || "/placeholder.svg"}
-            alt="You styled in the Aster & Hem look"
+            alt="You styled in the Tour Sydney look"
             className="absolute inset-0 h-full w-full object-cover"
           />
         )}

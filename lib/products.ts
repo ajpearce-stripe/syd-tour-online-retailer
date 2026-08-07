@@ -1,12 +1,12 @@
-// Aster & Hem Product Catalogue
+// Tour Sydney Product Catalogue
 // Contemporary Australian womenswear — elevated basics and polished workwear.
 // 100-item demo inventory. Product images live at /public/images/products/<SKU>.jpg
 //
-// Aster & Hem catalogue — 100 items across Workwear, Weekend, Evening, Accessories.
+// Tour Sydney catalogue — 100 items across Workwear, Weekend, Evening, Accessories.
 
-import inventory from "./aster-hem-inventory.json"
+import inventory from "./tour-sydney-inventory.json"
 
-export interface AsterHemProduct {
+export interface Product {
   id: string
   sku: string
   name: string
@@ -54,7 +54,7 @@ const FEATURED_SKUS = new Set<string>([
   "AH-085",
 ])
 
-export const PRODUCTS: AsterHemProduct[] = (inventory as InventoryItem[]).map((item) => ({
+export const PRODUCTS: Product[] = (inventory as InventoryItem[]).map((item) => ({
   id: item.sku,
   sku: item.sku,
   name: item.name,
@@ -72,16 +72,16 @@ export const PRODUCTS: AsterHemProduct[] = (inventory as InventoryItem[]).map((i
 
 // Convenience lookup by SKU/id — used by the stylist agent's vision feature and
 // in-chat product cards.
-export const PRODUCTS_BY_SKU: Record<string, AsterHemProduct> = Object.fromEntries(
+export const PRODUCTS_BY_SKU: Record<string, Product> = Object.fromEntries(
   PRODUCTS.map((p) => [p.id, p]),
 )
 
-export function getProductBySku(sku: string): AsterHemProduct | undefined {
+export function getProductBySku(sku: string): Product | undefined {
   return PRODUCTS_BY_SKU[sku]
 }
 
 // Lookup a single product by id (id === sku in this catalogue).
-export function getProductById(id: string): AsterHemProduct | undefined {
+export function getProductById(id: string): Product | undefined {
   return PRODUCTS_BY_SKU[id]
 }
 
@@ -89,14 +89,14 @@ export function getProductById(id: string): AsterHemProduct | undefined {
 export const getCategories = (): string[] => [...new Set(PRODUCTS.map((p) => p.category))]
 
 // Filter by category.
-export const getByCategory = (cat: string): AsterHemProduct[] =>
+export const getByCategory = (cat: string): Product[] =>
   PRODUCTS.filter((p) => p.category === cat)
 
 // Featured / "new in" hero pieces.
-export const getFeatured = (): AsterHemProduct[] => PRODUCTS.filter((p) => p.featured)
+export const getFeatured = (): Product[] => PRODUCTS.filter((p) => p.featured)
 
 // Search by name, colour or category.
-export const searchProducts = (q: string): AsterHemProduct[] => {
+export const searchProducts = (q: string): Product[] => {
   const term = q.toLowerCase()
   return PRODUCTS.filter(
     (p) =>
@@ -110,14 +110,14 @@ export const searchProducts = (q: string): AsterHemProduct[] => {
 // mark a stable ~1-in-3 subset of products as on sale based on the numeric part
 // of their SKU (e.g. "AH-003"). This drives the tiered The Edit Club member
 // discount (10% off full price, 5% off sale items) and the "Sale" badge.
-export function isOnSale(product: Pick<AsterHemProduct, "id">): boolean {
+export function isOnSale(product: Pick<Product, "id">): boolean {
   const n = Number.parseInt(String(product.id).replace(/\D/g, ""), 10)
   if (Number.isNaN(n)) return false
   return n % 3 === 0
 }
 
 // Builds compact, Stripe-metadata-safe summaries of an order's line items so a
-// purchase can later be read back at the product level (e.g. by Hem to
+// purchase can later be read back at the product level (e.g. by the stylist to
 // recommend complementary pieces). Both fields are capped to Stripe's 500-char
 // metadata value limit.
 export function summarizeCartItems(cartItems: { productId: string; quantity: number }[]): {
@@ -138,5 +138,3 @@ export function summarizeCartItems(cartItems: { productId: string; quantity: num
   }
 }
 
-// Shared type alias used across components.
-export type Product = AsterHemProduct

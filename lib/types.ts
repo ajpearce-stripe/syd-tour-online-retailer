@@ -7,7 +7,7 @@ export interface Product {
   url?: string
   image: string
   featured: boolean
-  // Aster & Hem womenswear fields (optional for backwards compatibility).
+  // Tour Sydney womenswear fields (optional for backwards compatibility).
   sku?: string
   colour?: string
   subcategory?: string

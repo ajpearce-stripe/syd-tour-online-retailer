@@ -19,10 +19,9 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: "Aster & Hem — AI Personal Stylist, Instant Checkout",
+  title: "Tour Sydney — AI Personal Stylist, Instant Checkout",
   description:
-    "Upload a photo and let Hem, our AI personal stylist, curate a personalised Aster & Hem edit — purchasable in seconds with Stripe's Agentic Commerce Suite.",
-  generator: "v0.app",
+    "Upload a photo and let our AI personal stylist curate a personalised Tour Sydney edit — purchasable in seconds with Stripe's Agentic Commerce Suite.",
 }
 
 export default function RootLayout({

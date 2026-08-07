@@ -3,7 +3,7 @@ import { generateText } from "ai"
 import sharp from "sharp"
 import { readFile } from "node:fs/promises"
 import path from "node:path"
-import { getProductById, type AsterHemProduct } from "@/lib/products"
+import { getProductById, type Product } from "@/lib/products"
 
 // One single image pass with all reference photos — keeps the demo fast
 // and reliable instead of one slow call per product.
@@ -19,7 +19,7 @@ const MAX_ITEMS = 6
 
 // Where each kind of piece sits on the body — gives the model concrete guidance
 // so the outfit reads as a coordinated, head-to-toe look.
-function placementHint(product: AsterHemProduct): string {
+function placementHint(product: Product): string {
   const sub = (product.subcategory ?? "").toLowerCase()
   const name = product.name.toLowerCase()
   if (sub.includes("blazer") || sub.includes("outerwear") || /coat|jacket|trench/.test(name))
@@ -41,7 +41,7 @@ function placementHint(product: AsterHemProduct): string {
   return "styled naturally as part of the outfit"
 }
 
-function describeProduct(product: AsterHemProduct): string {
+function describeProduct(product: Product): string {
   return `${product.name} in ${product.colour ?? product.variant ?? ""}`.trim()
 }
 
@@ -49,7 +49,7 @@ type GeneratedFile = { base64: string; mediaType?: string }
 
 // Load a product's local image (public/images/products/<sku>.jpg) as a data URL
 // so the model can reproduce the actual garment's colour, fabric and silhouette.
-async function loadReference(product: AsterHemProduct): Promise<string | null> {
+async function loadReference(product: Product): Promise<string | null> {
   try {
     // product.image is like "/images/products/AH-001.jpg"
     const rel = product.image.replace(/^\//, "")
@@ -102,7 +102,7 @@ export async function POST(req: NextRequest) {
 
   const products = productIds
     .map((id) => getProductById(id))
-    .filter((p): p is AsterHemProduct => Boolean(p))
+    .filter((p): p is Product => Boolean(p))
     .slice(0, MAX_ITEMS)
 
   if (products.length === 0) {
@@ -115,7 +115,7 @@ export async function POST(req: NextRequest) {
     const references = await Promise.all(products.map((p) => loadReference(p)))
     const placeable = products.map((product, i) => ({ product, reference: references[i] }))
     const withRefs = placeable.filter(
-      (x): x is { product: AsterHemProduct; reference: string } => Boolean(x.reference),
+      (x): x is { product: Product; reference: string } => Boolean(x.reference),
     )
 
     const refNumberById = new Map<string, number>()
@@ -136,15 +136,15 @@ export async function POST(req: NextRequest) {
       {
         type: "text",
         text:
-          "You are a photorealistic fashion styling tool for Aster & Hem. Your job is to dress the PERSON in the " +
-          "customer's photo in the listed Aster & Hem outfit, producing a realistic full-look try-on.\n\n" +
+          "You are a photorealistic fashion styling tool for Tour Sydney. Your job is to dress the PERSON in the " +
+          "customer's photo in the listed Tour Sydney outfit, producing a realistic full-look try-on.\n\n" +
           "===== HARD RULES — NEVER BREAK =====\n" +
           "1. KEEP THE PERSON'S IDENTITY. Preserve their exact face, skin tone, hair, body shape, proportions and " +
           "pose. Do not beautify, slim, age, change ethnicity, or alter their face in any way.\n" +
           "2. KEEP THE BACKGROUND. Preserve the original background, setting, lighting, shadows, exposure, white " +
           "balance and camera angle. Do not change the scene.\n" +
           "3. ONLY change the person's CLOTHING and accessories — replace whatever outfit they are currently wearing " +
-          "with the listed Aster & Hem pieces. If the photo shows an outfit/wardrobe rather than a person, render a " +
+          "with the listed Tour Sydney pieces. If the photo shows an outfit/wardrobe rather than a person, render a " +
           "realistic model wearing the full look against a clean, softly-lit studio background instead.\n\n" +
           `Dress the person in ALL of the following ${placeable.length} piece(s) as ONE coordinated outfit:\n${itemLines}\n\n` +
           "===== HOW TO STYLE =====\n" +
@@ -154,7 +154,7 @@ export async function POST(req: NextRequest) {
           "- Layer correctly: tops under jackets/blazers; bottoms below tops; shoes on the feet; bag carried " +
           "naturally; jewellery and accessories placed where they belong.\n" +
           "- The final image must look like a single, professionally-styled fashion photograph of this person " +
-          "wearing the complete Aster & Hem look.\n" +
+          "wearing the complete Tour Sydney look.\n" +
           "Return only the edited photograph.",
       },
       { type: "text", text: "THE CUSTOMER'S PHOTO (keep the person and background) is the next image:" },
@@ -162,7 +162,7 @@ export async function POST(req: NextRequest) {
       ...withRefs.flatMap((x, idx) => [
         {
           type: "text" as const,
-          text: `REFERENCE IMAGE ${idx + 1} — the official Aster & Hem photo of "${x.product.name}". The next image shows EXACTLY what this piece looks like:`,
+          text: `REFERENCE IMAGE ${idx + 1} — the official Tour Sydney photo of "${x.product.name}". The next image shows EXACTLY what this piece looks like:`,
         },
         { type: "image" as const, image: x.reference },
       ]),

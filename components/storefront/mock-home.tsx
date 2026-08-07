@@ -37,7 +37,7 @@ const CATEGORY_TILES: { label: string; image: string; dest: ShopDestination }[] 
 
 const FOOTER_COLUMNS = [
   {
-    title: "Shop Aster & Hem",
+    title: "Shop Tour Sydney",
     links: ["New In", "Workwear", "Weekend", "Evening", "Accessories", "Sale", "Gift Cards", "The Edit Club"],
   },
   {
@@ -56,7 +56,7 @@ const FOOTER_COLUMNS = [
     ],
   },
   {
-    title: "About Aster & Hem",
+    title: "About Tour Sydney",
     links: [
       "Our Story",
       "Sustainability",
@@ -126,7 +126,7 @@ export function MockHome({
                     className="mt-6 rounded-full bg-background px-6 text-foreground hover:bg-background/90"
                   >
                     <Sparkles className="mr-1.5 h-4 w-4" aria-hidden="true" />
-                    Meet Hem, your AI stylist
+                    Meet your AI Stylist
                     <ArrowRight className="ml-1.5 h-4 w-4" aria-hidden="true" />
                   </Button>
                 </div>
@@ -173,7 +173,7 @@ export function MockHome({
               <div className="relative min-h-[280px] overflow-hidden bg-secondary">
                 <Image
                   src="/home/stylist-fashion.png"
-                  alt="Flat-lay of a curated Aster & Hem edit — knit, leather tote, heels and tailoring"
+                  alt="Flat-lay of a curated Tour Sydney edit — knit, leather tote, heels and tailoring"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
@@ -186,14 +186,14 @@ export function MockHome({
 
               <div className="flex flex-col justify-center gap-5 p-8 sm:p-10">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-accent">Meet Hem, your personal stylist</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-accent">Your AI Personal Stylist</p>
                   <h2 className="mt-2 text-balance font-serif text-3xl leading-tight text-foreground sm:text-4xl">
                     Snap your style. Get a curated edit in seconds.
                   </h2>
                 </div>
                 <p className="text-pretty text-sm leading-relaxed text-muted-foreground">
-                  Upload or photograph an outfit, a piece you love, or your wardrobe, and Hem reads your style, finds the
-                  gaps, and curates a shoppable Aster &amp; Hem edit — checkout in a tap.
+                  Upload or photograph an outfit, a piece you love, or your wardrobe, and our AI stylist reads your style, finds the
+                  gaps, and curates a shoppable Tour Sydney edit - checkout in a tap.
                 </p>
                 <ul className="flex flex-col gap-2 text-sm text-foreground">
                   <li className="flex items-center gap-2">
@@ -212,7 +212,7 @@ export function MockHome({
                     className="rounded-full bg-accent px-7 text-accent-foreground hover:bg-accent/90"
                   >
                     <Sparkles className="mr-1.5 h-4 w-4" aria-hidden="true" />
-                    Style me with Hem
+                    Style me
                   </Button>
                 </div>
               </div>
@@ -303,11 +303,11 @@ export function MockHome({
 
           <div className="mt-12 border-t border-border pt-8 flex flex-col gap-2">
             <p className="text-pretty text-xs leading-relaxed text-muted-foreground">
-              {"\u00A9"} Aster &amp; Hem {new Date().getFullYear()} — Contemporary Australian womenswear. Elevated basics
+              {"\u00A9"} Tour Sydney {new Date().getFullYear()} — Contemporary Australian womenswear. Elevated basics
               and polished tailoring, designed to be worn season after season.
             </p>
             <p className="text-[11px] text-muted-foreground/70">
-              Aster &amp; Hem is a fictitious brand created for demonstration purposes only.
+              Tour Sydney is a fictitious brand created for Stripe Tour Sydney demonstration purposes only.
             </p>
           </div>
         </div>

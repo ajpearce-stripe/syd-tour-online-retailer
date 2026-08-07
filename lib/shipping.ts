@@ -1,11 +1,11 @@
-// Aster & Hem delivery & loyalty pricing rules.
+// Tour Sydney delivery & loyalty pricing rules.
 //
 // - Standard delivery is a flat fee, free above a spend threshold.
 // - Edit Club members get a lower free-shipping threshold.
 // - "Join and save" applies a one-off discount on the current order.
 // - Promotional codes apply a percentage or fixed dollar discount.
 
-// Standard delivery is a flat fee (Aster & Hem increased this from $14.95 to $19.95).
+// Standard delivery is a flat fee (Tour Sydney increased this from $14.95 to $19.95).
 export const STANDARD_SHIPPING = 19.95
 // Free standard delivery thresholds: Edit Club members over $50, everyone
 // else over $175.
@@ -120,7 +120,7 @@ export function computeAgentPrice({ items, fulfillment, isMember }: AgentPriceIn
   let shipping = 0
   let shippingFree = true
   if (fulfillment === "delivery") {
-    // Qualification is on the order value (subtotal), matching Aster & Hem's wording
+    // Qualification is on the order value (subtotal), matching Tour Sydney's wording
     // of "free standard delivery on orders over $X".
     shippingFree = subtotal >= freeShipThreshold
     shipping = shippingFree ? 0 : STANDARD_SHIPPING

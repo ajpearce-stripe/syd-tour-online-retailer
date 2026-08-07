@@ -3,7 +3,7 @@ import { CartProvider } from "@/components/storefront/cart-context"
 import { MembershipContent } from "./membership-content"
 
 export const metadata = {
-  title: "My Edit Club Membership | Aster & Hem",
+  title: "My Edit Club Membership | Tour Sydney",
   description: "Manage your Edit Club membership, billing and benefits.",
 }
 

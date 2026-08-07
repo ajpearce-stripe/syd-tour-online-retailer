@@ -1,7 +1,7 @@
 import { PRODUCTS } from "./products"
 import type { Product } from "./types"
 
-// Aster & Hem — contemporary Australian womenswear navigation.
+// Tour Sydney — contemporary Australian womenswear navigation.
 export type MenuKey = "New In" | "Workwear" | "Weekend" | "Evening" | "Accessories" | "Sale"
 
 export const NAV_MENU: MenuKey[] = ["Workwear", "Weekend", "Evening", "Accessories", "Sale"]

@@ -109,7 +109,7 @@ function mapCharge(c: Stripe.Charge, discountMap: Map<string, DiscountInfo>): Me
     !rawDescription || /payment for invoice/i.test(rawDescription)
       ? items.length > 0
         ? items.join(", ")
-        : "Aster & Hem order"
+        : "Tour Sydney order"
       : rawDescription
 
   return {
@@ -187,7 +187,7 @@ export interface StylistPurchase {
   items: string[]
   // Unique product categories in the order (e.g. ["Throws and Blankets"]).
   categories: string[]
-  // Human summary fallback (e.g. "Aster & Hem — 2 items") for older orders.
+  // Human summary fallback (e.g. "Tour Sydney — 2 items") for older orders.
   description: string
   // Order total in dollars.
   amount: number

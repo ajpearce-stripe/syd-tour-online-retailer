@@ -10,7 +10,7 @@ import type { ShopDestination, MenuKey } from "@/lib/categories"
 
 type View = "home" | "stylist" | "shop" | "linen"
 
-export function AsterHemApp({ demoMode }: { demoMode: boolean }) {
+export function TourSydneyApp({ demoMode }: { demoMode: boolean }) {
   // Allow deep-linking straight to the The Edit Club benefits page via
   // `/?view=editclub` (used by the header's The Edit Club buttons from other routes).
   const [view, setView] = useState<View>(() => {
@@ -46,7 +46,7 @@ export function AsterHemApp({ demoMode }: { demoMode: boolean }) {
   if (view === "stylist") {
     // The Stylist wizard now shares the storefront cart, so its "Add" buttons
     // drop pieces into the same top-right cart and it renders inside the
-    // CartProvider with the standard Aster & Hem header + nav.
+    // CartProvider with the standard Tour Sydney header + nav.
     content = (
       <Wizard
         demoMode={demoMode}

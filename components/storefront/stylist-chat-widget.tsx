@@ -15,8 +15,8 @@ import { requiresSize } from "@/lib/sizing"
 import { useCart } from "./cart-context"
 import type { AgentOrder, Product } from "@/lib/types"
 
-const CHAT_STORAGE_KEY = 'hem-chat-messages'
-const DEMO_STATE_KEY = 'hem-demo-state'
+const CHAT_STORAGE_KEY = 'ts-chat-messages'
+const DEMO_STATE_KEY = 'ts-demo-state'
 
 function loadPersistedMessages(): UIMessage[] {
   if (typeof window === 'undefined') return []
@@ -59,7 +59,7 @@ function renderInlineMarkdown(text: string) {
   })
 }
 
-// A product as returned by the searchCatalog tool (mirrors AsterHemProduct).
+// A product as returned by the searchCatalog tool (mirrors Product).
 interface ChatProduct {
   id: string
   name: string
@@ -185,7 +185,7 @@ function ProductTile({
                 className={cn(
                   "rounded-md border px-2 py-1 text-[10px] font-medium transition-colors",
                   sizeSelected === size
-                    ? "border-[#C4714A] bg-[#C4714A]/10 text-[#C4714A]"
+                    ? "border-[#635BFF] bg-[#635BFF]/10 text-[#635BFF]"
                     : "border-border bg-background text-foreground hover:bg-secondary"
                 )}
               >
@@ -268,11 +268,11 @@ function TryOnLoadingAnimation() {
         <Sparkles className="h-3.5 w-3.5 animate-pulse text-accent" aria-hidden="true" />
         <span className="italic">Trying it on for you — give me 10–15 seconds...</span>
       </div>
-      <div className="rounded-xl overflow-hidden border border-[#E8E3DA]">
+      <div className="rounded-xl overflow-hidden border border-[#E3E8EF]">
         <div
           className="h-80 w-full relative flex items-center justify-center"
           style={{
-            background: 'linear-gradient(135deg, #F5F0E8 0%, #E8E3DA 50%, #F5F0E8 100%)',
+            background: 'linear-gradient(135deg, #F0F2F8 0%, #E3E8EF 50%, #F0F2F8 100%)',
             backgroundSize: '400% 400%',
             animation: 'ah-gradient-shift 3s ease infinite',
           }}
@@ -280,31 +280,31 @@ function TryOnLoadingAnimation() {
           <div className="flex flex-col items-center gap-4 px-6">
             <div className="relative w-16 h-16">
               <div
-                className="absolute inset-0 rounded-full border-2 border-[#C4714A]/30"
+                className="absolute inset-0 rounded-full border-2 border-[#635BFF]/30"
                 style={{ animation: 'ah-spin-slow 3s linear infinite' }}
               />
               <div
-                className="absolute inset-1 rounded-full border-2 border-transparent border-t-[#C4714A]"
+                className="absolute inset-1 rounded-full border-2 border-transparent border-t-[#635BFF]"
                 style={{ animation: 'ah-spin-slow 1.5s linear infinite' }}
               />
               <div className="absolute inset-0 flex items-center justify-center">
-                <Sparkles className="h-5 w-5 text-[#C4714A]" />
+                <Sparkles className="h-5 w-5 text-[#635BFF]" />
               </div>
             </div>
             <p
               key={msgIndex}
-              className="text-xs text-[#1C1C1C]/60 text-center font-medium transition-opacity duration-500"
+              className="text-xs text-[#0A2540]/60 text-center font-medium transition-opacity duration-500"
               style={{ animation: 'ah-fade-cycle 1.5s ease-in-out infinite' }}
             >
               {TRYON_LOADING_MESSAGES[msgIndex]}
             </p>
           </div>
         </div>
-        <div className="p-3 bg-[#F5F0E8] flex items-center gap-2">
-          <div className="w-12 h-16 rounded-lg bg-[#E8E3DA] animate-pulse" />
+        <div className="p-3 bg-[#F0F2F8] flex items-center gap-2">
+          <div className="w-12 h-16 rounded-lg bg-[#E3E8EF] animate-pulse" />
           <div className="flex-1">
-            <div className="h-3 w-28 bg-[#E8E3DA] rounded animate-pulse mb-2" />
-            <div className="h-3 w-16 bg-[#E8E3DA] rounded animate-pulse" />
+            <div className="h-3 w-28 bg-[#E3E8EF] rounded animate-pulse mb-2" />
+            <div className="h-3 w-16 bg-[#E3E8EF] rounded animate-pulse" />
           </div>
         </div>
       </div>
@@ -491,7 +491,7 @@ export function StylistChatWidget({ externalOpen }: { externalOpen?: boolean } =
       ])
       setDemoStep(2)
 
-      // Step 3: after another 1.5s, Hem responds
+      // Step 3: after another 1.5s, the stylist responds
       setTimeout(() => {
         setDemoMessages((prev) => [
           ...prev,
@@ -701,10 +701,10 @@ export function StylistChatWidget({ externalOpen }: { externalOpen?: boolean } =
           type="button"
           onClick={() => setOpen(true)}
           className="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground shadow-lg transition-transform hover:scale-105"
-          aria-label="Chat with Hem, your personal stylist"
+          aria-label="Chat with your AI stylist"
         >
           <Sparkles className="h-4 w-4" aria-hidden="true" />
-          Chat with Hem
+          AI Stylist
         </button>
       )}
 
@@ -735,7 +735,7 @@ export function StylistChatWidget({ externalOpen }: { externalOpen?: boolean } =
                     left: `${Math.random() * 100}%`,
                     top: `-5%`,
                     animationDelay: `${Math.random() * 1.2}s`,
-                    backgroundColor: ["#C4714A", "#E8C56D", "#4A7C59", "#7C4AC4", "#C44A6B", "#4A9CC4", "#F5A623"][i % 7],
+                    backgroundColor: ["#635BFF", "#E8C56D", "#4A7C59", "#7C4AC4", "#C44A6B", "#4A9CC4", "#F5A623"][i % 7],
                     width: `${6 + Math.random() * 6}px`,
                     height: `${6 + Math.random() * 6}px`,
                     borderRadius: Math.random() > 0.5 ? "50%" : "2px",
@@ -754,13 +754,13 @@ export function StylistChatWidget({ externalOpen }: { externalOpen?: boolean } =
           )}
 
           {/* Header */}
-          <div className="flex items-center justify-between gap-2 border-b border-border bg-[#1C1C1C] px-4 py-3 text-[#F5F0E8]">
+          <div className="flex items-center justify-between gap-2 border-b border-border bg-[#0A2540] px-4 py-3 text-[#F0F2F8]">
             <div className="flex items-center gap-2">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1C1C1C] border border-[#F5F0E8]/30 text-[#F5F0E8] font-serif text-sm font-semibold">
-                H
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#0A2540] border border-[#F0F2F8]/30 text-[#F0F2F8] font-serif text-sm font-semibold">
+                S
               </span>
               <div className="leading-tight">
-                <p className="text-sm font-semibold">Hem · Personal Stylist</p>
+                <p className="text-sm font-semibold">AI Stylist</p>
               </div>
             </div>
             <button
@@ -776,28 +776,28 @@ export function StylistChatWidget({ externalOpen }: { externalOpen?: boolean } =
           {/* Messages */}
           <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4">
             {hasRestoredSession && (
-              <div className="text-xs text-center text-[#C4714A] py-2 mb-3 border-b border-[#E8E3DA]">
+              <div className="text-xs text-center text-[#635BFF] py-2 mb-3 border-b border-[#E3E8EF]">
                 Continuing your conversation from earlier this session
               </div>
             )}
             {messages.length === 0 && !demoMode && !hasRestoredSession ? (
               <div className="flex flex-col gap-3">
                 <div className="flex items-start gap-2">
-                  <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#1C1C1C] text-[#F5F0E8] font-serif text-xs font-semibold">
-                    H
+                  <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#0A2540] text-[#F0F2F8] font-serif text-xs font-semibold">
+                    S
                   </span>
                   <div className="rounded-2xl rounded-tl-sm bg-secondary px-3.5 py-2.5 text-sm leading-relaxed text-foreground">
                     <span className="mb-1 flex items-center gap-1 text-[11px] font-medium uppercase tracking-wide text-accent">
                       <Sparkles className="h-3 w-3" aria-hidden="true" />
-                      Hem
+                      Stylist
                     </span>
                     {demoPurchases.length > 0 ? (
-                      <p>Hi Liv, welcome back to Aster &amp; Hem.</p>
+                      <p>Hi Liv, welcome back to Tour Sydney.</p>
                     ) : isMember ? (
-                      <p>Hi Liv, welcome back to Aster &amp; Hem.</p>
+                      <p>Hi Liv, welcome back to Tour Sydney.</p>
                     ) : (
                       <p>
-                        Hi Liv, welcome back to Aster &amp; Hem.
+                        Hi Liv, welcome back to Tour Sydney.
                       </p>
                     )}
                   </div>
@@ -824,9 +824,9 @@ export function StylistChatWidget({ externalOpen }: { externalOpen?: boolean } =
                     <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-secondary px-3.5 py-2.5 text-sm leading-relaxed text-foreground">
                       <span className="mb-1 flex items-center gap-1 text-[11px] font-medium uppercase tracking-wide text-accent">
                         <Sparkles className="h-3 w-3" aria-hidden="true" />
-                        Hem
+                        Stylist
                       </span>
-                      <p>Hi Liv, welcome back to Aster &amp; Hem. Want me to find what&apos;s missing from your wardrobe — or upload a photo and I&apos;ll style you from there?</p>
+                      <p>Hi Liv, welcome back to Tour Sydney. Want me to find what&apos;s missing from your wardrobe — or upload a photo and I&apos;ll style you from there?</p>
                     </div>
                   </li>
                 )}
@@ -872,7 +872,7 @@ export function StylistChatWidget({ externalOpen }: { externalOpen?: boolean } =
                             {m.role === "assistant" && (
                               <span className="mb-1 flex items-center gap-1 text-[11px] font-medium uppercase tracking-wide text-accent">
                                 <Sparkles className="h-3 w-3" aria-hidden="true" />
-                                Hem
+                                Stylist
                               </span>
                             )}
                             <p className="text-pretty whitespace-pre-wrap">{renderInlineMarkdown(part.text)}</p>
@@ -909,7 +909,7 @@ export function StylistChatWidget({ externalOpen }: { externalOpen?: boolean } =
                               className="flex items-center gap-2 rounded-2xl bg-secondary px-3.5 py-2.5 text-xs text-muted-foreground"
                             >
                               <Sparkles className="h-3.5 w-3.5 animate-pulse text-accent" aria-hidden="true" />
-                              Searching the Aster & Hem catalogue…
+                              Searching the Tour Sydney catalogue…
                             </div>
                           )
                         }
@@ -981,12 +981,12 @@ export function StylistChatWidget({ externalOpen }: { externalOpen?: boolean } =
                     <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-secondary px-3.5 py-2.5 text-sm leading-relaxed text-foreground">
                       <span className="mb-1 flex items-center gap-1 text-[11px] font-medium uppercase tracking-wide text-accent">
                         <Sparkles className="h-3 w-3" aria-hidden="true" />
-                        Hem
+                        Stylist
                       </span>
                       <p className="text-pretty">{tryOnResult.caption}</p>
                     </div>
-                    <div className="w-full rounded-xl overflow-hidden border border-[#E8E3DA]">
-                      <div className="relative bg-[#F5F0E8] cursor-pointer" onClick={() => setTryOnExpanded(true)}>
+                    <div className="w-full rounded-xl overflow-hidden border border-[#E3E8EF]">
+                      <div className="relative bg-[#F0F2F8] cursor-pointer" onClick={() => setTryOnExpanded(true)}>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                           src={tryOnResult.tryOnImage}
@@ -999,9 +999,9 @@ export function StylistChatWidget({ externalOpen }: { externalOpen?: boolean } =
                           <span>Virtual try-on</span>
                         </div>
                       </div>
-                      <div className="flex flex-col gap-2 p-3 bg-[#F5F0E8]">
+                      <div className="flex flex-col gap-2 p-3 bg-[#F0F2F8]">
                         <div className="flex items-center gap-3">
-                          <div className="w-20 h-24 shrink-0 rounded-lg border border-[#E8E3DA] overflow-hidden relative">
+                          <div className="w-20 h-24 shrink-0 rounded-lg border border-[#E3E8EF] overflow-hidden relative">
                             <ProductImage
                               src={tryOnResult.product.image}
                               alt={tryOnResult.product.name}
@@ -1010,13 +1010,13 @@ export function StylistChatWidget({ externalOpen }: { externalOpen?: boolean } =
                             />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <p className="text-sm font-medium text-[#1C1C1C] leading-tight">
+                            <p className="text-sm font-medium text-[#0A2540] leading-tight">
                               {tryOnResult.product.name}
                             </p>
-                            <p className="text-xs text-[#1C1C1C]/50 mt-0.5">
+                            <p className="text-xs text-[#0A2540]/50 mt-0.5">
                               {tryOnResult.product.colour}
                             </p>
-                            <p className="text-sm font-semibold text-[#C4714A] mt-1">
+                            <p className="text-sm font-semibold text-[#635BFF] mt-1">
                               ${tryOnResult.product.price} AUD
                             </p>
                           </div>
@@ -1047,7 +1047,7 @@ export function StylistChatWidget({ externalOpen }: { externalOpen?: boolean } =
                                 }))
                                 addToCart(p.sku, 1)
                               }}
-                              className="w-full bg-[#1C1C1C] text-[#F5F0E8] text-xs font-medium px-3 py-2 rounded-lg hover:bg-[#C4714A] transition-colors"
+                              className="w-full bg-[#0A2540] text-[#F0F2F8] text-xs font-medium px-3 py-2 rounded-lg hover:bg-[#635BFF] transition-colors"
                             >
                               Add to bag · {selectedSizes[tryOnResult.product.sku]}
                             </button>
@@ -1123,7 +1123,7 @@ export function StylistChatWidget({ externalOpen }: { externalOpen?: boolean } =
                     <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-secondary px-3.5 py-2.5 text-sm leading-relaxed text-foreground">
                       <span className="mb-1 flex items-center gap-1 text-[11px] font-medium uppercase tracking-wide text-accent">
                         <Sparkles className="h-3 w-3" aria-hidden="true" />
-                        Hem
+                        Stylist
                       </span>
                       <p className="text-pretty">{visionResult.analysis}</p>
                     </div>
@@ -1180,7 +1180,7 @@ export function StylistChatWidget({ externalOpen }: { externalOpen?: boolean } =
                       {dm.role === "assistant" && (
                         <span className="mb-1 flex items-center gap-1 text-[11px] font-medium uppercase tracking-wide text-accent">
                           <Sparkles className="h-3 w-3" aria-hidden="true" />
-                          Hem
+                          Stylist
                         </span>
                       )}
                       <p className="text-pretty whitespace-pre-wrap">{dm.text}</p>
@@ -1240,7 +1240,7 @@ export function StylistChatWidget({ externalOpen }: { externalOpen?: boolean } =
                     <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-secondary px-3.5 py-2.5 text-sm leading-relaxed text-foreground">
                       <span className="mb-1 flex items-center gap-1 text-[11px] font-medium uppercase tracking-wide text-accent">
                         <Sparkles className="h-3 w-3" aria-hidden="true" />
-                        Hem
+                        Stylist
                       </span>
                       <p>You&apos;re all set, Liv. It&apos;ll be with you soon. Want to see what pairs with it?</p>
                     </div>
@@ -1283,20 +1283,20 @@ export function StylistChatWidget({ externalOpen }: { externalOpen?: boolean } =
           {/* Staged photo preview */}
           {stagedPhoto && (
             <div className="border-t border-border px-3 pt-2 pb-1">
-              <div className="flex items-center gap-2 text-xs text-[#1C1C1C]/50">
+              <div className="flex items-center gap-2 text-xs text-[#0A2540]/50">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={URL.createObjectURL(stagedPhoto)}
                   alt=""
                   className="w-8 h-8 object-cover rounded-md"
                 />
-                <span className="text-[#C4714A]">
+                <span className="text-[#635BFF]">
                   try: &ldquo;Which accessories would you recommend with this outfit?&rdquo;
                 </span>
                 <button
                   type="button"
                   onClick={() => setStagedPhoto(null)}
-                  className="ml-auto text-[#1C1C1C]/30 hover:text-[#C4714A] transition-colors"
+                  className="ml-auto text-[#0A2540]/30 hover:text-[#635BFF] transition-colors"
                 >
                   ✕
                 </button>
@@ -1336,7 +1336,7 @@ export function StylistChatWidget({ externalOpen }: { externalOpen?: boolean } =
               onChange={(e) => setInput(e.target.value)}
               disabled={busy || tryOnLoading}
               placeholder={stagedPhoto ? "e.g. How would I look in the Coastline Linen Blazer?" : "e.g. an outfit for a spring wedding"}
-              aria-label="Message Hem"
+              aria-label="Message your stylist"
               className="h-11 flex-1 rounded-xl border border-border bg-background px-3.5 text-sm text-foreground outline-none placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-accent disabled:opacity-50"
             />
             <button
@@ -1363,7 +1363,7 @@ export function StylistChatWidget({ externalOpen }: { externalOpen?: boolean } =
             <img
               src={tryOnResult.tryOnImage}
               alt="Virtual try-on expanded"
-              className="w-full h-full object-contain bg-[#F5F0E8]"
+              className="w-full h-full object-contain bg-[#F0F2F8]"
             />
             <button
               type="button"

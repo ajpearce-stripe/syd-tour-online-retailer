@@ -63,13 +63,13 @@ export function Step1Upload({
   return (
     <div className="animate-fade-up mx-auto max-w-2xl px-4 pb-20 pt-10 sm:px-6">
       <div className="text-center">
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">Meet Hem · AI Personal Stylist</p>
+        <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">AI Personal Stylist</p>
         <h1 className="mt-3 text-balance font-serif text-4xl leading-tight text-foreground sm:text-5xl">
           Your style, curated.
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-pretty leading-relaxed text-muted-foreground">
-          Upload a photo of yourself, an outfit you love, or your wardrobe, and tell Hem your style. Hem will curate a
-          personalised Aster &amp; Hem edit just for you — ready to wear and purchase in seconds.
+          Upload a photo of yourself, an outfit you love, or your wardrobe, and describe your style. our AI will curate a
+          personalised Tour Sydney edit just for you — ready to wear and purchase in seconds.
         </p>
       </div>
 
@@ -159,7 +159,7 @@ export function Step1Upload({
         <div>
           <Label className="text-sm font-medium text-foreground">What&apos;s the occasion?</Label>
           <p className="mt-1 text-sm text-muted-foreground">
-            Tell Hem where you&apos;ll wear it so the edit suits the moment.
+            Tell us where you&apos;ll wear it so the edit suits the moment.
           </p>
           <div className="mt-3 flex flex-wrap gap-2" role="radiogroup" aria-label="Choose the occasion">
             {OCCASION_OPTIONS.map((option) => {
@@ -189,7 +189,7 @@ export function Step1Upload({
         <div>
           <Label className="text-sm font-medium text-foreground">Choose your style</Label>
           <p className="mt-1 text-sm text-muted-foreground">
-            Pick the aesthetic you love — Hem matches it to the perfect Aster &amp; Hem pieces.
+            Pick the aesthetic you love — our AI matches it to the perfect Tour Sydney pieces.
           </p>
           <div className="mt-3 flex flex-wrap gap-2" role="radiogroup" aria-label="Choose your style">
             {STYLE_OPTIONS.map((option) => {
@@ -255,7 +255,7 @@ export function Step1Upload({
           onClick={onSubmit}
           className="h-12 rounded-xl bg-accent text-base font-medium text-accent-foreground hover:bg-accent/90"
         >
-          Style Me with Hem
+          Style Me
           <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
         </Button>
       </div>

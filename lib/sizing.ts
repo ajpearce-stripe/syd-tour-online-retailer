@@ -1,4 +1,4 @@
-import type { AsterHemProduct } from './products'
+import type { Product } from './products'
 
 export type SizeType = 'clothing' | 'shoes' | 'none'
 

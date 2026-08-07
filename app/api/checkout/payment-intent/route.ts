@@ -18,7 +18,7 @@ interface Body {
   membershipFee?: number
   customerId?: string | null
   memberDiscountAmount?: number
-  // An Aster & Hem gift card redeemed at the review step. The coupon was minted by
+  // An Tour Sydney gift card redeemed at the review step. The coupon was minted by
   // /api/gift-card/apply (Coupons API); here we read its value back from Stripe
   // and subtract it from the PaymentIntent amount so the card pays its share and
   // the Payment Element only collects the remaining balance.
@@ -31,7 +31,7 @@ interface Body {
 }
 
 // Storefront checkout via the PaymentIntents API. This powers the "Elements"
-// checkout mode. When an Aster & Hem gift card has been redeemed, its coupon value is
+// checkout mode. When an Tour Sydney gift card has been redeemed, its coupon value is
 // subtracted here so the Payment Element only collects the remaining balance —
 // the gift card (Coupons API) and the card (PaymentIntents API) settle the order
 // together. Amounts are priced server-side from the catalog so the client can't
@@ -139,7 +139,7 @@ export async function POST(req: NextRequest) {
       // Card + Link (plus Apple Pay / Google Pay, which surface automatically
       // with `card`). Link auto-populates the customer's saved details inline.
       payment_method_types: ["card", "link"],
-      description: `Aster & Hem — ${itemCount} item${itemCount === 1 ? "" : "s"}`,
+      description: `Tour Sydney — ${itemCount} item${itemCount === 1 ? "" : "s"}`,
       ...(customerId ? { customer: customerId } : {}),
       metadata,
     })

@@ -314,7 +314,7 @@ export function MembershipContent() {
                       <ArrowRight className="ml-1.5 h-4 w-4" aria-hidden="true" />
                     </Button>
                     <Button asChild variant="outline" className="w-full rounded-full">
-                      <Link href="/">Back to Aster & Hem</Link>
+                      <Link href="/">Back to Tour Sydney</Link>
                     </Button>
                   </div>
                 </div>

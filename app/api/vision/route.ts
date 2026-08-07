@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 import OpenAI from "openai"
-import inventory from "@/lib/aster-hem-inventory.json"
+import inventory from "@/lib/tour-sydney-inventory.json"
 
 export const maxDuration = 30
 
@@ -22,7 +22,7 @@ export async function POST(req: Request) {
       messages: [
         {
           role: "system",
-          content: `You are Hem, the AI stylist for Aster & Hem — a contemporary Australian womenswear brand specialising in elevated basics and polished workwear for professional women aged 28–45.
+          content: `You are the AI stylist for Tour Sydney — a contemporary Australian womenswear brand specialising in elevated basics and polished workwear for professional women aged 28–45.
 
 The user has uploaded a photo. Your job:
 1. Analyse the image: identify occasion, colour palette, garments visible, and overall style direction.

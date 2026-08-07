@@ -180,7 +180,7 @@ export async function POST(req: NextRequest) {
       amount: amountCents,
       currency: "usd",
       automatic_payment_methods: { enabled: true },
-      description: `Aster & Hem Stylist — ${itemCount} item${itemCount === 1 ? "" : "s"}`,
+      description: `Tour Sydney Stylist — ${itemCount} item${itemCount === 1 ? "" : "s"}`,
       customer: customerId,
       metadata,
     })

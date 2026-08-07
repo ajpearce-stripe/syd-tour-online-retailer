@@ -29,7 +29,7 @@ const analysisSchema = z.object({
         "trouser and polished leather accents.' Do NOT criticise the customer or what they are currently wearing — " +
         "only describe the forward-looking, style-specific additions.",
     ),
-  stylistNote: z.string().describe("A warm, 1-2 sentence editorial note from Hem, the personal stylist"),
+  stylistNote: z.string().describe("A warm, 1-2 sentence editorial note from the AI stylist"),
   recommendedProductIds: z
     .array(z.string())
     .describe(
@@ -115,7 +115,7 @@ export async function POST(req: NextRequest) {
         {
           role: "system",
           content:
-            "You are Hem, a senior personal stylist for Aster & Hem, a contemporary Australian womenswear brand. " +
+            "You are the AI personal stylist for Tour Sydney, a contemporary Australian womenswear brand. " +
             "Analyse the customer's photo (it may show them, an outfit they love, or pieces from their wardrobe) and " +
             "curate ONE complete, coordinated head-to-toe outfit that matches their style brief and the occasion.\n\n" +
             "Rules for recommendedProductIds:\n" +
@@ -134,7 +134,7 @@ export async function POST(req: NextRequest) {
             "<requested style> feel, ' and then name the specific colours, fabrics and garments that complete the " +
             "outfit. It MUST mention the requested style by name. CRITICAL: never criticise the customer or what " +
             "they're wearing — focus ONLY on the style-specific additions.\n" +
-            "- stylistNote: a warm, 1-2 sentence editorial note from Hem.\n\n" +
+            "- stylistNote: a warm, 1-2 sentence editorial note from the AI stylist.\n\n" +
             "Catalogue (id | name | category / subcategory | colour | price):\n" +
             catalog,
         },

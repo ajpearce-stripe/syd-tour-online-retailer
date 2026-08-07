@@ -16,7 +16,7 @@ export function Header({ onHome }: { onHome?: () => void }) {
               type="button"
               onClick={onHome}
               className="flex items-center gap-1 rounded-full border border-border bg-card px-2.5 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-secondary"
-              aria-label="Back to Aster & Hem home"
+              aria-label="Back to Tour Sydney home"
             >
               <ChevronLeft className="h-4 w-4" aria-hidden="true" />
               <span className="hidden sm:inline">Shop</span>
@@ -26,18 +26,18 @@ export function Header({ onHome }: { onHome?: () => void }) {
             type="button"
             onClick={onHome}
             className="flex items-center"
-            aria-label="Aster & Hem home"
+            aria-label="Tour Sydney home"
             disabled={!onHome}
           >
             <span className="font-serif text-[1.85rem] font-medium leading-none tracking-tight text-foreground">
-              Aster &amp; Hem
+              Tour Sydney
             </span>
           </button>
         </div>
 
         <div className="flex items-center gap-3">
           <span className="hidden rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground sm:inline-block">
-            Personal Stylist · ACS Demo
+            Stripe Tour Sydney · ACS Demo
           </span>
           <button
             type="button"

@@ -36,7 +36,7 @@ export function SiteChrome({ onNavigate, onHome, onEditClub, onSearch, onLaunchS
 
   const showStoreFinder = () => {
     toast("Store finder", {
-      description: "Aster & Hem has boutiques across Australia and New Zealand. Postcode store search coming soon.",
+      description: "Tour Sydney has boutiques across Australia and New Zealand. Postcode store search coming soon.",
     })
   }
 
@@ -70,11 +70,11 @@ export function SiteChrome({ onNavigate, onHome, onEditClub, onSearch, onLaunchS
               type="button"
               onClick={onHome}
               className="flex flex-col items-start"
-              aria-label="Aster & Hem home"
+              aria-label="Tour Sydney home"
               disabled={!onHome}
             >
               <span className="font-serif text-[1.75rem] font-medium leading-none tracking-tight text-foreground">
-                Aster &amp; Hem
+                Tour Sydney
               </span>
               <span className="mt-1 block h-px w-full bg-border" aria-hidden="true" />
             </button>
@@ -105,10 +105,10 @@ export function SiteChrome({ onNavigate, onHome, onEditClub, onSearch, onLaunchS
               type="button"
               onClick={onLaunchStylist}
               className="hidden cursor-pointer items-center gap-1.5 rounded-full border border-accent bg-accent/5 px-3 py-1.5 text-xs font-medium text-accent transition-colors hover:bg-accent/10 sm:inline-flex"
-              aria-label="Meet Hem, your AI stylist"
+              aria-label="Meet your AI stylist"
             >
               <MessageCircle className="h-4 w-4" aria-hidden="true" />
-              Meet Hem
+              AI Stylist
             </button>
             <button
               type="button"
@@ -124,10 +124,10 @@ export function SiteChrome({ onNavigate, onHome, onEditClub, onSearch, onLaunchS
               className="flex cursor-pointer items-center gap-2 transition-colors hover:text-brand"
               aria-label="Account"
             >
-              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1C1C1C] text-[#F5F0E8] text-xs font-medium">
+              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#0A2540] text-white text-xs font-medium">
                 {user.firstName[0]}{user.name.split(' ')[1]?.[0] ?? ''}
               </div>
-              <span className="hidden text-sm text-[#1C1C1C] sm:inline">{user.firstName}</span>
+              <span className="hidden text-sm text-foreground sm:inline">{user.firstName}</span>
             </button>
             <button
               type="button"

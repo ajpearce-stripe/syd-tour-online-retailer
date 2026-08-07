@@ -114,7 +114,7 @@ export function Step3Recommendations({
           </p>
 
           <div className="mt-4 rounded-2xl border border-border bg-card p-5 shadow-sm">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent">Hem&apos;s Style Read</p>
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent">Your Style Read</p>
 
             <dl className="mt-4 flex flex-col gap-3 text-sm">
               <div className="flex items-center justify-between gap-4">
@@ -149,7 +149,7 @@ export function Step3Recommendations({
               <blockquote className="mt-2 font-serif text-base italic leading-relaxed text-foreground">
                 {analysis.stylistNote}
               </blockquote>
-              <figcaption className="mt-2 text-xs text-muted-foreground">— Hem, your Aster &amp; Hem stylist</figcaption>
+              <figcaption className="mt-2 text-xs text-muted-foreground">— your AI stylist</figcaption>
             </figure>
           </div>
         </div>
