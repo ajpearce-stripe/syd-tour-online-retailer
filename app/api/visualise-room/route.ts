@@ -136,15 +136,15 @@ export async function POST(req: NextRequest) {
       {
         type: "text",
         text:
-          "You are a photorealistic fashion styling tool for Tour Sydney. Your job is to dress the PERSON in the " +
-          "customer's photo in the listed Tour Sydney outfit, producing a realistic full-look try-on.\n\n" +
+          "You are a photorealistic fashion styling tool for Sydney Tour 2026. Your job is to dress the PERSON in the " +
+          "customer's photo in the listed Sydney Tour 2026 outfit, producing a realistic full-look try-on.\n\n" +
           "===== HARD RULES — NEVER BREAK =====\n" +
           "1. KEEP THE PERSON'S IDENTITY. Preserve their exact face, skin tone, hair, body shape, proportions and " +
           "pose. Do not beautify, slim, age, change ethnicity, or alter their face in any way.\n" +
           "2. KEEP THE BACKGROUND. Preserve the original background, setting, lighting, shadows, exposure, white " +
           "balance and camera angle. Do not change the scene.\n" +
           "3. ONLY change the person's CLOTHING and accessories — replace whatever outfit they are currently wearing " +
-          "with the listed Tour Sydney pieces. If the photo shows an outfit/wardrobe rather than a person, render a " +
+          "with the listed Sydney Tour 2026 pieces. If the photo shows an outfit/wardrobe rather than a person, render a " +
           "realistic model wearing the full look against a clean, softly-lit studio background instead.\n\n" +
           `Dress the person in ALL of the following ${placeable.length} piece(s) as ONE coordinated outfit:\n${itemLines}\n\n` +
           "===== HOW TO STYLE =====\n" +
@@ -154,7 +154,7 @@ export async function POST(req: NextRequest) {
           "- Layer correctly: tops under jackets/blazers; bottoms below tops; shoes on the feet; bag carried " +
           "naturally; jewellery and accessories placed where they belong.\n" +
           "- The final image must look like a single, professionally-styled fashion photograph of this person " +
-          "wearing the complete Tour Sydney look.\n" +
+          "wearing the complete Sydney Tour 2026 look.\n" +
           "Return only the edited photograph.",
       },
       { type: "text", text: "THE CUSTOMER'S PHOTO (keep the person and background) is the next image:" },
@@ -162,7 +162,7 @@ export async function POST(req: NextRequest) {
       ...withRefs.flatMap((x, idx) => [
         {
           type: "text" as const,
-          text: `REFERENCE IMAGE ${idx + 1} — the official Tour Sydney photo of "${x.product.name}". The next image shows EXACTLY what this piece looks like:`,
+          text: `REFERENCE IMAGE ${idx + 1} — the official Sydney Tour 2026 photo of "${x.product.name}". The next image shows EXACTLY what this piece looks like:`,
         },
         { type: "image" as const, image: x.reference },
       ]),

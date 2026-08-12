@@ -37,7 +37,7 @@ const CATEGORY_TILES: { label: string; image: string; dest: ShopDestination }[] 
 
 const FOOTER_COLUMNS = [
   {
-    title: "Shop Tour Sydney",
+    title: "Shop Sydney Tour 2026",
     links: ["New In", "Workwear", "Weekend", "Evening", "Accessories", "Sale", "Gift Cards", "The Edit Club"],
   },
   {
@@ -56,7 +56,7 @@ const FOOTER_COLUMNS = [
     ],
   },
   {
-    title: "About Tour Sydney",
+    title: "About Sydney Tour 2026",
     links: [
       "Our Story",
       "Sustainability",
@@ -173,7 +173,7 @@ export function MockHome({
               <div className="relative min-h-[280px] overflow-hidden bg-secondary">
                 <Image
                   src="/home/stylist-fashion.png"
-                  alt="Flat-lay of a curated Tour Sydney edit — knit, leather tote, heels and tailoring"
+                  alt="Flat-lay of a curated Sydney Tour 2026 edit — knit, leather tote, heels and tailoring"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
@@ -193,7 +193,7 @@ export function MockHome({
                 </div>
                 <p className="text-pretty text-sm leading-relaxed text-muted-foreground">
                   Upload or photograph an outfit, a piece you love, or your wardrobe, and our AI stylist reads your style, finds the
-                  gaps, and curates a shoppable Tour Sydney edit - checkout in a tap.
+                  gaps, and curates a shoppable Sydney Tour 2026 edit - checkout in a tap.
                 </p>
                 <ul className="flex flex-col gap-2 text-sm text-foreground">
                   <li className="flex items-center gap-2">
@@ -303,11 +303,11 @@ export function MockHome({
 
           <div className="mt-12 border-t border-border pt-8 flex flex-col gap-2">
             <p className="text-pretty text-xs leading-relaxed text-muted-foreground">
-              {"\u00A9"} Tour Sydney {new Date().getFullYear()} — Contemporary Australian womenswear. Elevated basics
+              {"\u00A9"} Sydney Tour 2026 {new Date().getFullYear()} — Contemporary Australian womenswear. Elevated basics
               and polished tailoring, designed to be worn season after season.
             </p>
             <p className="text-[11px] text-muted-foreground/70">
-              Tour Sydney is a fictitious brand created for Stripe Tour Sydney demonstration purposes only.
+              Sydney Tour 2026 is a fictitious brand created for Stripe Sydney Tour 2026 demonstration purposes only.
             </p>
           </div>
         </div>

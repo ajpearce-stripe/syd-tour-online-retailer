@@ -36,7 +36,7 @@ export function SiteChrome({ onNavigate, onHome, onEditClub, onSearch, onLaunchS
 
   const showStoreFinder = () => {
     toast("Store finder", {
-      description: "Tour Sydney has boutiques across Australia and New Zealand. Postcode store search coming soon.",
+      description: "Sydney Tour 2026 has boutiques across Australia and New Zealand. Postcode store search coming soon.",
     })
   }
 
@@ -70,11 +70,11 @@ export function SiteChrome({ onNavigate, onHome, onEditClub, onSearch, onLaunchS
               type="button"
               onClick={onHome}
               className="flex flex-col items-start"
-              aria-label="Tour Sydney home"
+              aria-label="Sydney Tour 2026 home"
               disabled={!onHome}
             >
               <span className="font-serif text-[1.75rem] font-medium leading-none tracking-tight text-foreground">
-                Tour Sydney
+                Sydney Tour 2026
               </span>
               <span className="mt-1 block h-px w-full bg-border" aria-hidden="true" />
             </button>

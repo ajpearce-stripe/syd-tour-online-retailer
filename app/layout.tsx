@@ -19,9 +19,9 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: "Tour Sydney — AI Personal Stylist, Instant Checkout",
+  title: "Sydney Tour 2026 — AI Personal Stylist, Instant Checkout",
   description:
-    "Upload a photo and let our AI personal stylist curate a personalised Tour Sydney edit — purchasable in seconds with Stripe's Agentic Commerce Suite.",
+    "Upload a photo and let our AI personal stylist curate a personalised Sydney Tour 2026 edit — purchasable in seconds with Stripe's Agentic Commerce Suite.",
 }
 
 export default function RootLayout({

@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
   // membership" on the dashboard.
   let customerId: string | null = null
   let memberDiscountAmount = 0
-  // An Tour Sydney gift card redeemed at the review step. The coupon was minted by
+  // An Sydney Tour 2026 gift card redeemed at the review step. The coupon was minted by
   // /api/gift-card/apply (Coupons API); the Checkout Session applies it natively
   // via `discounts` so the card pays its share and the Checkout collects the rest.
   let giftCardCouponId: string | null = null
@@ -119,7 +119,7 @@ export async function POST(req: NextRequest) {
     // Stripe Checkout allows only ONE coupon per session, so we reconcile the two
     // possible discounts here:
     //   - the The Edit Club / promo member discount, and
-    //   - the redeemed Tour Sydney gift card (already a coupon from the Coupons API).
+    //   - the redeemed Sydney Tour 2026 gift card (already a coupon from the Coupons API).
     // When both are present we mint a single combined coupon for the session; the
     // original gift card coupon still exists in Stripe as the redemption record.
     let giftCardValue = 0
@@ -168,7 +168,7 @@ export async function POST(req: NextRequest) {
     // member's "Recent purchases" can list the items they bought. The reader
     // (mapCharge) reads names/categories from PaymentIntent metadata — the line
     // items alone aren't enough — so without this, orders placed in the same
-    // checkout as a membership sign-up showed only a generic "Tour Sydney order".
+    // checkout as a membership sign-up showed only a generic "Sydney Tour 2026 order".
     const orderSummary = summarizeCartItems(cartItems)
     if (orderSummary.items) piMetadata[ITEMS_METADATA_KEY] = orderSummary.items
     if (orderSummary.categories) piMetadata[CATEGORIES_METADATA_KEY] = orderSummary.categories

@@ -19,7 +19,7 @@ export interface ElementsCheckoutPayload {
   membershipFee: number
   customerId: string | null
   memberDiscountAmount: number
-  // A redeemed Tour Sydney gift card. The coupon (Coupons API) is created at the
+  // A redeemed Sydney Tour 2026 gift card. The coupon (Coupons API) is created at the
   // review step; here it tells the PaymentIntent how much the card already covers.
   giftCardCouponId: string | null
   giftCardAmount: number

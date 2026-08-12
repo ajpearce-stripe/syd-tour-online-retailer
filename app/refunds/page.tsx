@@ -1,9 +1,9 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Refund & Return Policy | Tour Sydney Shopping Assistant",
+  title: "Refund & Return Policy | Sydney Tour 2026 Shopping Assistant",
   description:
-    "How returns, refunds, and exchanges work for purchases made through the Tour Sydney Shopping Assistant.",
+    "How returns, refunds, and exchanges work for purchases made through the Sydney Tour 2026 Shopping Assistant.",
 }
 
 const UPDATED = "June 2026"
@@ -12,7 +12,7 @@ export default function RefundsPage() {
   return (
     <main className="mx-auto max-w-3xl px-6 py-16">
       <header className="mb-10 border-b border-border pb-8">
-        <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">Tour Sydney Shopping Assistant</p>
+        <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">Sydney Tour 2026 Shopping Assistant</p>
         <h1 className="mt-2 text-balance text-3xl font-semibold text-foreground sm:text-4xl">
           Refund &amp; Return Policy
         </h1>

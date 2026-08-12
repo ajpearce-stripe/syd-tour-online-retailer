@@ -2,7 +2,7 @@ import { NextResponse } from "next/server"
 import { getStripe } from "@/lib/stripe"
 import { GIFT_CARD_VALID_PIN, GIFT_CARD_NUMBER_LENGTH, GIFT_CARD_DEMO_BALANCE } from "@/lib/checkout-config"
 
-// Redeems an Tour Sydney gift card by validating it server side and minting a one-off
+// Redeems an Sydney Tour 2026 gift card by validating it server side and minting a one-off
 // Stripe coupon (Coupons API) for the card balance. The coupon id is handed back
 // to the client, which passes it to whichever payment API settles the order:
 //   - PaymentIntents API (Elements mode) reads the coupon's amount_off and
@@ -48,7 +48,7 @@ export async function POST(req: Request) {
       amount_off: Math.round(balance * 100),
       currency: "usd",
       duration: "once",
-      name: `Tour Sydney Gift Card ****${last4}`,
+      name: `Sydney Tour 2026 Gift Card ****${last4}`,
       metadata: { kind: "ah_gift_card", last4 },
     })
 

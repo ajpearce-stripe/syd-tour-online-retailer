@@ -1,4 +1,4 @@
-// Deterministic, style-aware outfit curation for Tour Sydney.
+// Deterministic, style-aware outfit curation for Sydney Tour 2026.
 //
 // The AI stylist (app/api/analyse-room) is the primary path, but it can fail or
 // return nothing. This module maps a free-text style brief (e.g. "minimal",

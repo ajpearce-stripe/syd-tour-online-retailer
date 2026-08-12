@@ -179,7 +179,7 @@ async function chargeGoodsInvoice(
       // Shown on the invoice so it's clear these are the other cart items bought
       // alongside the membership — kept off the $19.95 membership invoice.
       description:
-        "Tour Sydney order — items purchased with your Edit Club sign-up (billed separately from the $19.95 membership).",
+        "Sydney Tour 2026 order — items purchased with your Edit Club sign-up (billed separately from the $19.95 membership).",
       metadata: {
         source: "aster_hem_demo",
         kind: "linen_lovers_goods",
@@ -244,7 +244,7 @@ async function chargeGoodsInvoice(
   // The "Recent purchases" reader (mapCharge) pulls item/category chips from
   // PaymentIntent metadata, and the auto-created PaymentIntent that pays this
   // invoice has none — which is why join-flow cart items previously showed as a
-  // bare "Tour Sydney order" with no products. Stamping it makes the items appear.
+  // bare "Sydney Tour 2026 order" with no products. Stamping it makes the items appear.
   if (paidInvoiceId) {
     try {
       const itemsLabel = items

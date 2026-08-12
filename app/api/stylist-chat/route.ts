@@ -6,7 +6,7 @@ import { fetchRecentPurchasesForStylist, sumMembershipSavings } from "@/lib/stri
 import { DEMO_USER } from "@/lib/demo-user"
 import { DEMO_MEMBERSHIP } from "@/lib/demo-membership"
 
-// The Tour Sydney AI Stylist chat agent. It holds a natural conversation about what
+// The Sydney Tour 2026 AI Stylist chat agent. It holds a natural conversation about what
 // the buyer is shopping for, searches the live catalogue for real products
 // (returned to the UI as cards with images), asks smart follow-up questions,
 // and hands off to the in-chat Stripe Agentic Commerce checkout when the buyer
@@ -14,7 +14,7 @@ import { DEMO_MEMBERSHIP } from "@/lib/demo-membership"
 
 export const maxDuration = 30
 
-const SYSTEM_PROMPT = `You are a warm, expert AI personal stylist for Tour Sydney, a contemporary Australian womenswear brand. Your job is to understand what the customer really needs, curate REAL clothing and accessories, and help them BUY directly in this chat.
+const SYSTEM_PROMPT = `You are a warm, expert AI personal stylist for Sydney Tour 2026, a contemporary Australian womenswear brand. Your job is to understand what the customer really needs, curate REAL clothing and accessories, and help them BUY directly in this chat.
 
 VOICE
 - Warm, tasteful, and decisive. Australian spelling. Upbeat but never pushy.
@@ -56,7 +56,7 @@ Be the stylist people remember: insightful, efficient, and genuinely helpful.`
 
 const searchCatalogTool = tool({
   description:
-    "Search the live Tour Sydney product catalogue for real, purchasable clothing and accessories. Call this whenever the customer expresses any shopping intent (an occasion, a style, a colour, a garment, a category, or a budget). Returns matching products with images and USD prices that are rendered to the customer as shoppable cards.",
+    "Search the live Sydney Tour 2026 product catalogue for real, purchasable clothing and accessories. Call this whenever the customer expresses any shopping intent (an occasion, a style, a colour, a garment, a category, or a budget). Returns matching products with images and USD prices that are rendered to the customer as shoppable cards.",
   inputSchema: z.object({
     query: z
       .string()
@@ -123,7 +123,7 @@ export async function POST(req: Request) {
   // recommend pieces that complement what they already own. Gated on sign-in.
   const getPurchaseHistoryTool = tool({
     description:
-      "Retrieve the signed-in Edit Club member's recent Tour Sydney orders (item names, categories, dates, totals). Call this when a signed-in member references a past purchase or asks for recommendations based on what they've bought, so suggestions can complement items they already own. Returns loggedIn:false when the shopper isn't signed in.",
+      "Retrieve the signed-in Edit Club member's recent Sydney Tour 2026 orders (item names, categories, dates, totals). Call this when a signed-in member references a past purchase or asks for recommendations based on what they've bought, so suggestions can complement items they already own. Returns loggedIn:false when the shopper isn't signed in.",
     inputSchema: z.object({}),
     execute: async () => {
       if (!memberCustomerId) return { loggedIn: false as const, purchases: [] }

@@ -24,7 +24,7 @@ export function isAllowedImageHost(hostname: string): boolean {
 // Normalise a raw image value from the product catalogue into an absolute URL.
 // - null / undefined / empty  -> null (frontend shows a placeholder)
 // - protocol-relative "//..." -> prefixed with https:
-// - relative "/path"          -> prefixed with the Tour Sydney origin
+// - relative "/path"          -> prefixed with the Sydney Tour 2026 origin
 // - already absolute          -> returned as-is
 export function cleanImageUrl(raw: string | null | undefined): string | null {
   if (!raw) return null

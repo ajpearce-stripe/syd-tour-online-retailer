@@ -41,7 +41,7 @@ const TIPS = [
 const CHECKLIST = [
   "Identifying furniture and palette",
   "Matching your style preferences",
-  "Curating your Tour Sydney collection",
+  "Curating your Sydney Tour 2026 collection",
 ]
 
 export function Step2Loading() {

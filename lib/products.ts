@@ -1,8 +1,8 @@
-// Tour Sydney Product Catalogue
+// Sydney Tour 2026 Product Catalogue
 // Contemporary Australian womenswear — elevated basics and polished workwear.
 // 100-item demo inventory. Product images live at /public/images/products/<SKU>.jpg
 //
-// Tour Sydney catalogue — 100 items across Workwear, Weekend, Evening, Accessories.
+// Sydney Tour 2026 catalogue — 100 items across Workwear, Weekend, Evening, Accessories.
 
 import inventory from "./tour-sydney-inventory.json"
 

@@ -69,7 +69,7 @@ export function Step1Upload({
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-pretty leading-relaxed text-muted-foreground">
           Upload a photo of yourself, an outfit you love, or your wardrobe, and describe your style. our AI will curate a
-          personalised Tour Sydney edit just for you — ready to wear and purchase in seconds.
+          personalised Sydney Tour 2026 edit just for you — ready to wear and purchase in seconds.
         </p>
       </div>
 
@@ -189,7 +189,7 @@ export function Step1Upload({
         <div>
           <Label className="text-sm font-medium text-foreground">Choose your style</Label>
           <p className="mt-1 text-sm text-muted-foreground">
-            Pick the aesthetic you love — our AI matches it to the perfect Tour Sydney pieces.
+            Pick the aesthetic you love — our AI matches it to the perfect Sydney Tour 2026 pieces.
           </p>
           <div className="mt-3 flex flex-wrap gap-2" role="radiogroup" aria-label="Choose your style">
             {STYLE_OPTIONS.map((option) => {

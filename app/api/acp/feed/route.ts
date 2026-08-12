@@ -45,7 +45,7 @@ export async function GET(req: NextRequest) {
 
   return jsonCors({
     seller: {
-      name: "Tour Sydney",
+      name: "Sydney Tour 2026",
       description: "Premium Australian home and linen brand",
       currency: "usd",
       total_products: TOTAL_PRODUCTS,

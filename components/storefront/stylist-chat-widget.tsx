@@ -792,12 +792,12 @@ export function StylistChatWidget({ externalOpen }: { externalOpen?: boolean } =
                       Stylist
                     </span>
                     {demoPurchases.length > 0 ? (
-                      <p>Hi Liv, welcome back to Tour Sydney.</p>
+                      <p>Hi Liv, welcome back to Sydney Tour 2026.</p>
                     ) : isMember ? (
-                      <p>Hi Liv, welcome back to Tour Sydney.</p>
+                      <p>Hi Liv, welcome back to Sydney Tour 2026.</p>
                     ) : (
                       <p>
-                        Hi Liv, welcome back to Tour Sydney.
+                        Hi Liv, welcome back to Sydney Tour 2026.
                       </p>
                     )}
                   </div>
@@ -826,7 +826,7 @@ export function StylistChatWidget({ externalOpen }: { externalOpen?: boolean } =
                         <Sparkles className="h-3 w-3" aria-hidden="true" />
                         Stylist
                       </span>
-                      <p>Hi Liv, welcome back to Tour Sydney. Want me to find what&apos;s missing from your wardrobe — or upload a photo and I&apos;ll style you from there?</p>
+                      <p>Hi Liv, welcome back to Sydney Tour 2026. Want me to find what&apos;s missing from your wardrobe — or upload a photo and I&apos;ll style you from there?</p>
                     </div>
                   </li>
                 )}
@@ -909,7 +909,7 @@ export function StylistChatWidget({ externalOpen }: { externalOpen?: boolean } =
                               className="flex items-center gap-2 rounded-2xl bg-secondary px-3.5 py-2.5 text-xs text-muted-foreground"
                             >
                               <Sparkles className="h-3.5 w-3.5 animate-pulse text-accent" aria-hidden="true" />
-                              Searching the Tour Sydney catalogue…
+                              Searching the Sydney Tour 2026 catalogue…
                             </div>
                           )
                         }

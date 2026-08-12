@@ -46,7 +46,7 @@ export function TourSydneyApp({ demoMode }: { demoMode: boolean }) {
   if (view === "stylist") {
     // The Stylist wizard now shares the storefront cart, so its "Add" buttons
     // drop pieces into the same top-right cart and it renders inside the
-    // CartProvider with the standard Tour Sydney header + nav.
+    // CartProvider with the standard Sydney Tour 2026 header + nav.
     content = (
       <Wizard
         demoMode={demoMode}

@@ -7,7 +7,7 @@ export interface Product {
   url?: string
   image: string
   featured: boolean
-  // Tour Sydney womenswear fields (optional for backwards compatibility).
+  // Sydney Tour 2026 womenswear fields (optional for backwards compatibility).
   sku?: string
   colour?: string
   subcategory?: string

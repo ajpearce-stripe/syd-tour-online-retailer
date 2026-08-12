@@ -4,7 +4,7 @@ import { isAllowedImageHost } from "@/lib/image-url"
 
 // Production-robust product image proxy.
 //
-// THE PROBLEM: Tour Sydney's image CDN sits behind Cloudflare, which BLOCKS
+// THE PROBLEM: Sydney Tour 2026's image CDN sits behind Cloudflare, which BLOCKS
 // server-to-server requests from Vercel's datacenter IP ranges. A direct
 // server-side fetch therefore works in the v0 dev sandbox (allowed IP) but
 // returns 502 in production. Loading wsrv.nl directly from the browser works,

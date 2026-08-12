@@ -45,7 +45,7 @@ export function formatUsd(cents: number): string {
 // the structured attributes we do have. Keeps the agent's responses readable.
 export function productDescription(p: Product): string {
   const variant = p.variant && p.variant.trim() ? `${p.variant} · ` : ""
-  return `${p.name} — ${variant}${p.category} from Tour Sydney, a premium Australian home and linen brand.`
+  return `${p.name} — ${variant}${p.category} from Sydney Tour 2026, a premium Australian home and linen brand.`
 }
 
 // Public, ACP-shaped view of a catalogue product.
