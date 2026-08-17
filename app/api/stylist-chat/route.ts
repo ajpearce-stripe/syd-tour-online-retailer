@@ -1,4 +1,5 @@
 import { convertToModelMessages, stepCountIs, streamText, tool, type UIMessage } from "ai"
+import { createOpenAI } from "@ai-sdk/openai"
 import { z } from "zod"
 import { searchCatalog } from "@/lib/catalog-search"
 import { getStripe } from "@/lib/stripe"
@@ -211,7 +212,7 @@ STRICT RULE — NEVER mention membership discounts, savings percentages, free de
 ${memberCustomerId ? "She is SIGNED IN — you can also call getPurchaseHistory for her full order history from Stripe, and getMembershipDetails to answer questions about her membership." : "Purchase history tools are available if needed."}`
 
   const result = streamText({
-    model: "openai/gpt-5.5",
+    model: createOpenAI({ apiKey: process.env.OPENAI_API_KEY })("gpt-5.5"),
     system: `${SYSTEM_PROMPT}\n\n${memberContext}`,
     messages: await convertToModelMessages(messages),
     tools: {
@@ -223,8 +224,6 @@ ${memberCustomerId ? "She is SIGNED IN — you can also call getPurchaseHistory 
     // cushion + a coordinating throw) and then respond in one turn.
     stopWhen: stepCountIs(8),
     providerOptions: {
-      // Light reasoning keeps replies snappy while still letting gpt-5.5 plan
-      // multi-search curation and budget logic.
       openai: { reasoningEffort: "low" },
     },
   })
